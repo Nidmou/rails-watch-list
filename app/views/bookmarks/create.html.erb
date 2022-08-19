@@ -1,2 +1,7 @@
 <h1>Bookmarks#create</h1>
 <p>Find me in app/views/bookmarks/create.html.erb</p>
+
+<%= render 'form_book', bookmark: [@movie, @bookmark]%>
+<div>
+<% link_to "back to lits", lists_path%>
+</div>

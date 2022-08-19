@@ -10,17 +10,21 @@ before_action :set_list, only: [:show]
 
   def new
     @list = List.new
+
   end
 
 
   def create
-  @list = List.new(list_params)
-  if @list.save
-    redirect_to root_path(@list)
-  else
-    render :new, status: :unprocessable_entity
+    @list = List.new(list_params)
+    if @list.save
+      redirect_to root_path(@list)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
-
+  def destroy
+    @list = List.find(params[:id])
+    @list.destroy
   end
 end
 
