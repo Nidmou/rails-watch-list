@@ -1,12 +1,34 @@
-<h1>Lists</h1>
-<div>
-  <ul>
-<% @lists.each do |list| %>
-  <li><%= list.name %>
-  <%=link_to 'My list', list_path(list)%>
-  <%=link_to 'Destroy', list_path(list),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
-<% end %>
-  </ul>
-<%=link_to 'Add list', new_list_path%>
+<div  class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.avoir-alire.com/IMG/jpg/jp4.jpg);">
+
+  <div class="container">
+    <h1><strong>Welcome , take a break and edit your list</h1>
+  </div>
 </div>
+<div class= body >
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class= col>
+        <div class="cards">
+            <% @lists.each do |list| %>
+              <li><%= list.name %>
+              <%# <a href= "list_path(list)"> %>
+              <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill%>
+              <%# <li class="nav-item active"> %>
+
+            <div class = .btn-cancel>
+              <%=link_to 'My list', list_path(list)%>
+              <%=link_to 'Destroy', list_path(list),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+              </li>
+            <% end %>
+              <%=link_to 'Add list', new_list_path%>
+              <%# <li class="nav-item"></li> %>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</div>
+
+<%# <div class="card-category"
+  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>
+
+<%# </div> %>

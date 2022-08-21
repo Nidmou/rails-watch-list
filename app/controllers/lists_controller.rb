@@ -10,7 +10,6 @@ before_action :set_list, only: [:show]
 
   def new
     @list = List.new
-
   end
 
 
@@ -31,7 +30,7 @@ end
 private
 
 def list_params
-  params.require(:list).permit(:name)
+  params.require(:list).permit(:name, :body, :photo [])
 end
 
 def set_list
